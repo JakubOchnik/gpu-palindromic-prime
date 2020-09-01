@@ -153,9 +153,15 @@ void printArr(int arr[], int N) {
 
 int main()
 {
-    for (int i = 1000; i < 100000; i+=1000) {
+    std::ofstream data("data.csv");
+    if (!data.is_open())
+        return -1;
+    data.setf(std::ios_base::fixed);
+    data << "N,GPU_SIEVE,CPU_SIEVE,CPU_CLASSIC\n";
+    for (int i = 1000; i <= 100000; i+=1000) {
         int N = i;
-        printf("%d\n", N);
+        //printf("%d\n", N);
+        data << N << ",";
         const int threadsPerBlock = 256;
         int blocksPerGrid = 32;
         if (32 < (N + threadsPerBlock - 1) / threadsPerBlock)
@@ -173,7 +179,8 @@ int main()
         timer.toggleCount();
         kernel<<<blocksPerGrid, threadsPerBlock>>>(dev_out, N);
         timer.toggleCount();
-        printf("A. GPU Sieve of Eratosthenes implementation:\n%f s\n", timer.printTime().count());
+        //printf("A. GPU Sieve of Eratosthenes implementation:\n%f s\n", timer.printTime().count());
+        data << timer.printTime().count() << ",";
         cudaMemcpy(mainArr, dev_out, N * sizeof(int), cudaMemcpyDeviceToHost);
         cudaFree(dev_out);
 
@@ -183,16 +190,19 @@ int main()
         timer.toggleCount();
         CPUprimeSieve(arr, N);
         timer.toggleCount();
-        printf("B. CPU Sieve of Eratosthenes implementation:\n%f s\n", timer.printTime().count() / 2);
+        //printf("B. CPU Sieve of Eratosthenes implementation:\n%f s\n", timer.printTime().count() / 2);
+        data << timer.printTime().count()/2 << ",";
 
         filterArray(mainArr, N);
         timer.toggleCount();
         CPUprime(mainArr, N);
         timer.toggleCount();
-        printf("C. CPU classic:\n%f s\n", timer.printTime().count());
+        //printf("C. CPU classic:\n%f s\n", timer.printTime().count());
+        data << timer.printTime().count() << "\n";
 
         free(arr);
         free(mainArr);
     }
+    data.close();
     return 0;
 }
