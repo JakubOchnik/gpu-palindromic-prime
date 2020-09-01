@@ -7,10 +7,6 @@
 #include<chrono>
 #include<fstream>
 
-#if __INTELLISENSE__
-void __syncthreads();
-#endif
-
 #define imin(a,b) (a<b?a:b)
 const int N = 10;
 const int threadsPerBlock = 256;
