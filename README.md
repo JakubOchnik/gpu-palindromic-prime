@@ -15,14 +15,14 @@ It's the simplest, naive solution one can ever find. It's based on a simple loop
 Note that the following time values may not be 100% accurate as they might have been influenced by other programs running on the test PC setup and they have been interpolated (rolling mean) in order to make the graphs more clear.
 ### GPU vs CPU version of Sieve of Eratosthenes
 ![GPU vs CPU sieve](https://ochnik.me/public/gpu_cpu_sieve.png)
-*Comparison of GPU vs CPU speed. Y axis - seconds, X axis - search range*
+*Comparison of GPU vs CPU speed. Y axis - seconds, X axis - search range*<br>
 The comparison clearly shows the advantage of GPU parallel version over the CPU one.
 Although, as visible at the very beginning, for smaller search ranges CPU outperforms the GPU.
-### Beginning
-![GPU vs CPU sieve start](ochnik.me/public/gpu_cpu_sieve_start.png)
+### Smaller range of numbers
+![GPU vs CPU sieve start](https://ochnik.me/public/gpu_cpu_sieve_start.png)
 *Initial fragment of the previous graph*
 ### CPU vs CPU classic (iterative) version
-![CPU classic vs CPU sieve](ochnik.me/public/cpu_cpu_sieve.png)
-It seems that performance-wise, CPU version of sieve of Eratosthenes definitely outperforms classic algorithm.
+![CPU classic vs CPU sieve](https://ochnik.me/public/cpu_cpu_sieve.png)
+It seems that performance-wise, CPU version of sieve of Eratosthenes outperforms classic algorithm.
 ### Comparison of all 3 versions
-![Summary](ochnik.me/public/all.png)
+![Summary](https://ochnik.me/public/all.png)
