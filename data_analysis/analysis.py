@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
 
-df = pd.read_csv('C:\\Users\\Jakub Ochnik\\source\\repos\\GPUPrimePalindromes\\data.csv',index_col=0)
+df = pd.read_csv('data.csv',index_col=0)
 df = df.iloc[1:]
 #df = df[['GPU_SIEVE','CPU_SIEVE']]
 df['Ticks'] = range(0,len(df.index.values))
