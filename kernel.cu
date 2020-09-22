@@ -158,9 +158,9 @@ int main()
         return -1;
     data.setf(std::ios_base::fixed);
     data << "N,GPU_SIEVE,CPU_SIEVE,CPU_CLASSIC\n";
-    for (int i = 1000; i <= 100000; i+=1000) {
+    for (int i = 10; i <= 100000; i+=10) {
         int N = i;
-        //printf("%d\n", N);
+        printf("%d\n", N);
         data << N << ",";
         const int threadsPerBlock = 256;
         int blocksPerGrid = 32;
