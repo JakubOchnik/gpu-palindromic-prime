@@ -3,3 +3,9 @@ GPUPrimePalindromes.sln
 GPUPrimePalindromes.vcxproj
 GPUPrimePalindromes.vcxproj.user
 x64/
+all.png
+cpu_cpu_sieve.png
+data.csv
+gpu_cpu.png
+gpu_cpu_sieve.png
+gpu_cpu_sieve_start.png
